@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="am">
+<head>
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#1f7a4d">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Largo Shop</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            🧴 Largo Shop
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#order">Order</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="cart-button" onclick="openCart()">
+            🛒 Cart
+            <span id="cartCount">0</span>
+        </button>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                እንኳን ወደ Largo Shop
+                በደህና መጡ!
+            </h1>
+
+            <p>
+                የተለያዩ የጽዳት ምርቶችን
+                በቀላሉ ይዘዙ።
+            </p>
+
+            <a href="#products" class="shop-button">
+                🛍️ ምርቶችን ይመልከቱ
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- PRODUCTS -->
+    <section id="products" class="products-section">
+
+        <h2>🧴 Our Products</h2>
+
+        <input
+            type="text"
+            id="search"
+            placeholder="🔎 ምርት ይፈልጉ..."
+            onkeyup="searchProducts()"
+        >
+
+
+        <div class="products" id="productList">
+
+
+            <!-- PRODUCT 1 -->
+            <div class="product">
+
+                <div class="product-image">
+                    🧴
+                </div>
+
+                <h3>Largo 1L</h3>
+
+                <p>
+                    የልብስ ማጠቢያ ፈሳሽ
+                </p>
+
+                <div class="price">
+                    100 Birr
+                </div>
+
+                <button
+                    onclick="addToCart('Largo 1L', 100)">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+            <div class="product">
+
+                <div class="product-image">
+                    🧴
+                </div>
+
+                <h3>Largo 2L</h3>
+
+                <p>
+                    የልብስ ማጠቢያ ፈሳሽ
+                </p>
+
+                <div class="price">
+                    200 Birr
+                </div>
+
+                <button
+                    onclick="addToCart('Largo 2L', 200)">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+            <div class="product">
+
+              <div class="product-image">
+    <img src="images/largo-5l.png" alt="Largo 5L Laundry Liquid">
+</div>
+
+                <h3>Largo 5L</h3>
+
+                <p>
+                    ትልቅ የቤት አጠቃቀም
+                </p>
+
+                <div class="price">
+                    500 Birr
+                </div>
+
+                <button
+                    onclick="addToCart('Largo 5L', 500)">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product">
+
+                <div class="product-image">
+    <img src="images/largo-2l.png" alt="Largo 2L Laundry Liquid">
+</div>
+
+                <h3>Dish Washing Liquid</h3>
+
+                <p>
+                    የዕቃ ማጠቢያ
+                </p>
+
+                <div class="price">
+                    120 Birr
+                </div>
+
+                <button
+                    onclick="addToCart('Dish Washing Liquid', 120)">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+
+            <!-- PRODUCT 5 -->
+            <div class="product">
+
+               <div class="product-image">
+    <img src="images/largo-1l.png" alt="Largo 1L Laundry Liquid">
+</div>
+
+                <h3>Floor Cleaner</h3>
+
+                <p>
+                    የመሬት ማጽጃ
+                </p>
+
+                <div class="price">
+                    150 Birr
+                </div>
+
+                <button
+                    onclick="addToCart('Floor Cleaner', 150)">
+                    🛒 Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+   <!-- ORDER -->
+<section id="order" class="order-section">
+
+    <h2>📦 ትዕዛዝዎን ያስገቡ</h2>
+
+    <p>
+        ምርቶችዎን Cart ውስጥ ካስገቡ በኋላ
+        አድራሻዎን ይሙሉ።
+    </p>
+
+    <form id="orderForm">
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="👤 ሙሉ ስም"
+            required
+        >
+
+        <input
+            type="tel"
+            id="phone"
+            placeholder="📞 ስልክ ቁጥር"
+            required
+        >
+
+        <input
+            type="text"
+            id="city"
+            placeholder="🏙️ ከተማ"
+            required
+        >
+
+        <input
+            type="text"
+            id="area"
+            placeholder="📍 አካባቢ / ሰፈር"
+            required
+        >
+
+        <textarea
+            id="address"
+            placeholder="🏠 ዝርዝር የመድረሻ አድራሻ"
+            required
+            <select id="paymentMethod" required>
+    <option value="">💳 የክፍያ መንገድ ይምረጡ</option>
+    <option value="Cash on Delivery">💵 Cash on Delivery</option>
+    <option value="Telebirr">📱 Telebirr</option>
+    <option value="Bank Transfer">🏦 Bank Transfer</option>
+</select>
+        ></textarea>
+
+        <div class="delivery-box">
+            🚚 Delivery
+            <strong>FREE</strong>
+        </div>
+
+        <div class="order-total">
+
+            💰 Total:
+
+            <strong>
+                <span id="orderTotal">0</span>
+                Birr
+            </strong>
+
+        </div>
+
+        <button type="submit">
+            📦 Order Now
+        </button>
+
+    </form>
+
+</section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+
+        <h2>📞 Contact Us</h2>
+
+        <p>
+            ለተጨማሪ መረጃ ያግኙን።
+        </p>
+
+        <p>
+            📱 Phone: 0912679116
+        </p>
+
+        <p>
+            🚚 Free Delivery
+        </p>
+
+    </section>
+
+
+    <!-- CART -->
+    <div id="cartModal" class="cart-modal">
+
+        <div class="cart-box">
+
+            <button
+                class="close-button"
+                onclick="closeCart()">
+                ✖
+            </button>
+
+
+            <h2>
+                🛒 Your Cart
+            </h2>
+
+
+            <div id="cartItems"></div>
+
+
+            <div class="cart-total">
+
+                Total:
+
+                <strong>
+                    <span id="cartTotal">0</span>
+                    Birr
+                </strong>
+
+            </div>
+
+
+            <button
+                onclick="closeCart()">
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 Largo Shop
+        </p>
+
+        <p>
+            🚚 Free Delivery
+        </p>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="script.js"></script>
+
+</body>
+</html>
